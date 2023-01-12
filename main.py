@@ -1,11 +1,9 @@
 from customtkinter import CTk, CTkLabel, CTkFrame, CTkButton
 
 
-global player
+global played, board, game_over
 player = "O"
-global board
 board = [[' ' for _ in range(3)] for _ in range(3)]
-global game_over
 game_over = False
 
 def create_widgets():
@@ -17,14 +15,12 @@ def create_widgets():
                                height=100,
                                text=" ",
                                font=("Arial", 50),
-                               command=lambda r = row, c = col: TicTacToe(r, c),
-                               
-                               )
+                               command=lambda r = row, c = col: TicTacToe(r, c))
             button.grid(row=row,
                         column=col,
                         padx=8,
                         pady=8)      
-  
+ 
 
 def new_game():
     global player, board, game_over
